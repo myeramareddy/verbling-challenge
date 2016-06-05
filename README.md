@@ -1,7 +1,7 @@
 # Verbling React Challenge
 
-App found [here] !
-[here]: http://myeramareddy.github.io/test-site/client/
+<h4>Demo found <a href="http://myeramareddy.github.io/test-site/client/" target="_blank">here</a> !</h4>
+
 
 ![](docs/spec.png)
 
