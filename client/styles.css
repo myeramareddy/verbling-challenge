@@ -4,7 +4,7 @@ body {
   background-color: #52B3A5;
 }
 
-h1, h2 {
+h1, h2, h5, label {
   text-align: center;
 }
 
@@ -30,6 +30,7 @@ h1, h2 {
 
 .button-style {
   background: #b56969;
+  color: #fff;
   border: none;
   outline: none;
   border-radius: 7px;
@@ -90,4 +91,18 @@ button:last-of-type {
   text-align: center;
   background: none;
   color: #5E5E5E;
+}
+
+.add-entry-box {
+	position: relative;
+	margin: auto;
+	width: 300px;
+  	height: 300px;
+  	background-color: #8b8589;
+}
+
+.element-test {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
