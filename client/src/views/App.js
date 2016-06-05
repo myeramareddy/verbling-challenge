@@ -121,6 +121,7 @@ export default class App extends React.Component {
 						<button className="button-style" onClick={this.addNewEntry.bind(this)}>Add</button>
 					</div>					
 				</div>
+				<div className="page-footer"><p><center>&copy; 2016 Manisha Yeramareddy</center></p></div>
 			</div>
 		);
 	}
