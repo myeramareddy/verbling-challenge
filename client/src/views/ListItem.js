@@ -9,13 +9,14 @@ export default class ListItem extends React.Component {
 		}
 	}
 
-
 	componentWillReceiveProps(props) {
-
-	    this.setState({
-	      isOpen : props.openAll
-	    });
-
+		if(props.openAll == null) {
+			this.toggleEntry();
+		} else {
+			this.setState({
+		      isOpen : props.openAll
+		    });
+		}
 	  }
 
 	entryName() {

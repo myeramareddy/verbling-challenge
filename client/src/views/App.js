@@ -83,7 +83,9 @@ export default class App extends React.Component {
 	}
 
 	toogleAllEntries() {
-
+		this.setState({
+		    openAll : null
+	    });
 	}
 
 	sortById(array, attr) {
@@ -113,7 +115,5 @@ export default class App extends React.Component {
 			</div>
 		);
 	}
-
-
 
 }
