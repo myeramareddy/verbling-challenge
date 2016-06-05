@@ -77,7 +77,9 @@ export default class App extends React.Component {
 	}
 
 	closeAllEntries() {
-
+		this.setState({
+		    openAll : false
+	    });
 	}
 
 	toogleAllEntries() {

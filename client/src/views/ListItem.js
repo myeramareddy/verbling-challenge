@@ -9,11 +9,20 @@ export default class ListItem extends React.Component {
 		}
 	}
 
-	  entryName() {
+
+	componentWillReceiveProps(props) {
+
+	    this.setState({
+	      isOpen : props.openAll
+	    });
+
+	  }
+
+	entryName() {
 	    return (
 	      <p className="list-title">{this.props.name}</p>
 	    );
-	  }
+	}
 
 	entryDescription() {
 	    return (
