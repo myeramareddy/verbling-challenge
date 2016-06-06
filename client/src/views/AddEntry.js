@@ -3,8 +3,35 @@ import _ from 'lodash';
 
 export default class AddEntry extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      inputName : "",
+      inputDesc : ""
+    }
+  }
+
   cancelButtonPressed() {
     React.unmountComponentAtNode(document.getElementById('prompt'));
+  }
+
+  saveButtonPressed() {
+    console.log("new name? "+this.state.inputName);
+    console.log("new desc? "+this.state.inputDesc);
+
+    //this.cancelButtonPressed();
+  }
+
+  nameChanged(e) {
+      this.setState({
+        inputName: e.target.value
+      });
+  }
+
+  descChanged(e) {
+    this.setState({
+        inputDesc: e.target.value
+      });
   }
 
   renderForm() {
@@ -14,14 +41,14 @@ export default class AddEntry extends React.Component {
           <label>Add New Entry</label>
         </div>
         <div>
-          <input type="text" name="name" />
+          <span><input type="text" name="name" onChange={this.nameChanged.bind(this)}/></span>
         </div>
         <div>
-          <textarea rows="4" name="desc"/>
+          <span><textarea name="desc" onChange={this.descChanged.bind(this)}/></span>
         </div>
-        <div>
+        <div className="entry-box-buttons">
           <button className="button-style" onClick={this.cancelButtonPressed.bind(this)}>Cancel</button>
-          <button className="button-style">Save</button>
+          <button className="button-style" onClick={this.saveButtonPressed.bind(this)}>Save</button>
         </div>
       </div>
     );
