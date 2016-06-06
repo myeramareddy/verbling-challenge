@@ -10,7 +10,7 @@ export default class ListBox extends React.Component {
 
   renderItems() {
     var test = this.props.openAll;
-    console.log("Rendering open list items? : "+test);
+    //console.log("Rendering open list items? : "+this.props.items);
 
     return _.map(this.props.items, (item, index) => <ListItem key={index} {...item} openAll={test}  />);
 

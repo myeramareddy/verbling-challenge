@@ -1,38 +1,25 @@
 import React from 'react';
-import _ from 'lodash';
 
 export default class AddEntry extends React.Component {
 
   constructor(props) {
-    super(props)
-    this.state = {
-      inputName : "",
-      inputDesc : ""
-    }
-  }
-
-  cancelButtonPressed() {
-    React.unmountComponentAtNode(document.getElementById('prompt'));
+    super(props);    
   }
 
   saveButtonPressed() {
-    console.log("new name? "+this.state.inputName);
-    console.log("new desc? "+this.state.inputDesc);
-
-    //this.cancelButtonPressed();
+    const name = this.refs.name.value;
+    const desc = this.refs.desc.value;
+    console.log("Potential new entry? "+name+" --- "+desc);
+    if(name && desc) {
+      this.props.addNewEntry(name, desc);
+      this.refs.name.value = "";
+      this.refs.desc.value = "";
+    } else {
+      console.log("NOT CALLING ADD NEW Entry");
+      this.props.doNothing();
+    }
   }
 
-  nameChanged(e) {
-      this.setState({
-        inputName: e.target.value
-      });
-  }
-
-  descChanged(e) {
-    this.setState({
-        inputDesc: e.target.value
-      });
-  }
 
   renderForm() {
     return (
@@ -41,25 +28,26 @@ export default class AddEntry extends React.Component {
           <label>Add New Entry</label>
         </div>
         <div>
-          <span><input type="text" name="name" onChange={this.nameChanged.bind(this)}/></span>
+          <span><input type="text" ref="name" placeholder="Name"/></span>
         </div>
         <div>
-          <span><textarea name="desc" onChange={this.descChanged.bind(this)}/></span>
+          <span><textarea ref="desc" placeholder="Type away..."/></span>
         </div>
         <div className="entry-box-buttons">
-          <button className="button-style" onClick={this.cancelButtonPressed.bind(this)}>Cancel</button>
           <button className="button-style" onClick={this.saveButtonPressed.bind(this)}>Save</button>
         </div>
       </div>
     );
-
   }
 
   render() {
     return (
-        <form className="add-entry-box">
-          {this.renderForm()}
-        </form>
+      <div>
+        {this.props.showAddEntryBox ?
+           <form className="add-entry-box"><div>{this.renderForm()}</div></form> :
+           <form></form>
+        }
+      </div>
     );
   }
 
