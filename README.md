@@ -1,6 +1,6 @@
 # Verbling React Challenge
 
-<h4>Demo found <a href="http://myeramareddy.github.io/test-site/client/" target="_blank">here</a> !</h4>
+<h4>Demo found <a href="http://myeramareddy.github.io/project-site/client/" target="_blank">here</a> !</h4>
 
 
 ![](docs/spec.png)
